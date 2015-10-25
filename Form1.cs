@@ -37,10 +37,10 @@ namespace CentSharp
 					octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
 				break;
 				case Keys.Left:
-					octo.Location = new Point(octo.Location.X - 3, octo.Location.step);
+					octo.Location = new Point(octo.Location.X - 3, octo.Location.Y - step);
 					break;
 				case Keys.Right:
-					octo.Location = new Point(octo.Location.X + 3, octo.Location.step);
+					octo.Location = new Point(octo.Location.X + 3, octo.Location.Y + step);
 				break;
 			}
         }
