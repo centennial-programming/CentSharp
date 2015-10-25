@@ -28,10 +28,18 @@ namespace CentSharp
             switch (e.KeyCode)
             {
                 case Keys.Up:
-					MessageBox.Show("Up");
+					octo.Location = new Point(octo.Location.X, octo.Location.Y - 3);
 				break;
-
-            }
+				case Keys.Down:
+					octo.Location = new Point(octo.Location.X, octo.Location.Y + 3);
+				break;
+				case Keys.Left:
+					octo.Location = new Point(octo.Location.X - 3, octo.Location.Y);
+					break;
+				case Keys.Right:
+					octo.Location = new Point(octo.Location.X + 3, octo.Location.Y);
+				break;
+			}
         }
     }
 }
