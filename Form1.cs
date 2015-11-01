@@ -34,27 +34,38 @@ namespace CentSharp
 			switch (e.KeyCode)
 			{
 				case Keys.Up: //If UP key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+					moveUp();
 				break;
 				case Keys.Down: //If DOWN key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+					moveDown();
 				break;
 				case Keys.Left: //If LEFT key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+					moveLeft();
 				break;
 				case Keys.Right: //If RIGHT key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
+					moveRight();
 				break;
 			}
 		}
 
 		private void moveUp()
 		{
+			octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+		}
 
+		private void moveDown()
+		{
+			octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+		}
+
+		private void moveLeft()
+		{
+			octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+		}
+
+		private void moveRight()
+		{
+			octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
 		}
 	}
 }
