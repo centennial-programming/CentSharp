@@ -51,5 +51,10 @@ namespace CentSharp
 				break;
 			}
 		}
+
+		private void moveUp()
+		{
+
+		}
 	}
 }
