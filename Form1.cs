@@ -31,20 +31,24 @@ namespace CentSharp
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
 		{
 
-			switch (e.KeyCode)
+			if (e.KeyCode == Keys.Up)
 			{
-				case Keys.Up: //If UP key is pressed.
-					moveUp();
-				break;
-				case Keys.Down: //If DOWN key is pressed.
-					moveDown();
-				break;
-				case Keys.Left: //If LEFT key is pressed.
-					moveLeft();
-				break;
-				case Keys.Right: //If RIGHT key is pressed.
-					moveRight();
-				break;
+				moveUp();
+			}
+
+			if (e.KeyCode == Keys.Down)
+			{
+				moveDown();
+			}
+
+			if (e.KeyCode == Keys.Left)
+			{
+				moveLeft();
+			}
+
+			if (e.KeyCode == Keys.Right)
+			{
+				moveRight();
 			}
 		}
 
