@@ -30,26 +30,49 @@ namespace CentSharp
 		//KeyDown event.
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
 		{
-
-			switch (e.KeyCode)
+			//If the Up key is pressed.
+			if (e.KeyCode == Keys.Up)
 			{
-				case Keys.Up: //If UP key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
-				break;
-				case Keys.Down: //If DOWN key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
-				break;
-				case Keys.Left: //If LEFT key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
-				break;
-				case Keys.Right: //If RIGHT key is pressed.
-					//Move picture box to new location.
-					octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
-				break;
+				moveUp();
 			}
+
+			//If the Down key is pressed.
+			if (e.KeyCode == Keys.Down)
+			{
+				moveDown();
+			}
+
+			//If the Left key is pressed.
+			if (e.KeyCode == Keys.Left)
+			{
+				moveLeft();
+			}
+
+			//If the Right key is pressed.
+			if (e.KeyCode == Keys.Right)
+			{
+				moveRight();
+			}
+		}
+
+		private void moveUp()
+		{
+			octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+		}
+
+		private void moveDown()
+		{
+			octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+		}
+
+		private void moveLeft()
+		{
+			octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+		}
+
+		private void moveRight()
+		{
+			octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
 		}
 	}
 }
