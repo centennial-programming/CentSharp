@@ -54,19 +54,28 @@ namespace CentSharp
 				moveRight();
 			}
 
+            // if the escape key was the one pressed
             if (e.KeyCode == Keys.Escape)
             {
+                // exit the program
                 Application.Exit();
             }
 		}
 
 		private void moveUp()
 		{
+            // create a point for the octo to move to
             Point newOctoPoint = new Point(octo.Location.X, octo.Location.Y - step);
+            // create a rectangle using the point
             Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
-            if (newOctoBounds.Y >= ClientRectangle.Top)
+            // note: the point and rectangle represent where the octo will be
+            //       after it is moved, not where it is now
+            // if the rectangle's top edge is onscreen
+            // note: y-coordinates increase as you go down the screen
+            if (newOctoBounds.Top >= ClientRectangle.Top)
             {
-                octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+                // move the octo to the point
+                octo.Location = newOctoPoint;
             }
 		}
 
@@ -74,9 +83,11 @@ namespace CentSharp
 		{
             Point newOctoPoint = new Point(octo.Location.X, octo.Location.Y + step);
             Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
-            if (newOctoBounds.Y + octo.Size.Height <= ClientRectangle.Bottom)
+            // if the rectangle's bottom edge is onscreen
+            // note: y-coordinates increase as you go down the screen
+            if (newOctoBounds.Bottom <= ClientRectangle.Bottom)
             {
-                octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+                octo.Location = newOctoPoint;
             }
 		}
 
@@ -84,9 +95,10 @@ namespace CentSharp
 		{
             Point newOctoPoint = new Point(octo.Location.X - step, octo.Location.Y);
             Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
-            if (newOctoBounds.X >= ClientRectangle.Left)
+            // if the rectangle's left edge is onscreen
+            if (newOctoBounds.Left >= ClientRectangle.Left)
             {
-                octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+                octo.Location = newOctoPoint;
             }
 		}
 
@@ -94,9 +106,10 @@ namespace CentSharp
 		{
             Point newOctoPoint = new Point(octo.Location.X + step, octo.Location.Y);
             Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
-            if (newOctoBounds.X + octo.Size.Width <= ClientRectangle.Right)
+            // if the rectangle's right edge is onscreen
+            if (newOctoBounds.Right <= ClientRectangle.Right)
             {
-                octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
+                octo.Location = newOctoPoint;
             }
 		}
 	}
