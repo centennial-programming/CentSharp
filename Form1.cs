@@ -53,6 +53,11 @@ namespace CentSharp
 			{
 				moveRight();
 			}
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
 		}
 
 		private void moveUp()
