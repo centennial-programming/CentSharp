@@ -53,26 +53,64 @@ namespace CentSharp
 			{
 				moveRight();
 			}
+
+            // if the escape key was the one pressed
+            if (e.KeyCode == Keys.Escape)
+            {
+                // exit the program
+                Application.Exit();
+            }
 		}
 
 		private void moveUp()
 		{
-			octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+            // create a point for the octo to move to
+            Point newOctoPoint = new Point(octo.Location.X, octo.Location.Y - step);
+            // create a rectangle using the point
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            // note: the point and rectangle represent where the octo will be
+            //       after it is moved, not where it is now
+            // if the rectangle's top edge is onscreen
+            // note: y-coordinates increase as you go down the screen
+            if (newOctoBounds.Top >= ClientRectangle.Top)
+            {
+                // move the octo to the point
+                octo.Location = newOctoPoint;
+            }
 		}
 
 		private void moveDown()
 		{
-			octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+            Point newOctoPoint = new Point(octo.Location.X, octo.Location.Y + step);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            // if the rectangle's bottom edge is onscreen
+            // note: y-coordinates increase as you go down the screen
+            if (newOctoBounds.Bottom <= ClientRectangle.Bottom)
+            {
+                octo.Location = newOctoPoint;
+            }
 		}
 
 		private void moveLeft()
 		{
-			octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+            Point newOctoPoint = new Point(octo.Location.X - step, octo.Location.Y);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            // if the rectangle's left edge is onscreen
+            if (newOctoBounds.Left >= ClientRectangle.Left)
+            {
+                octo.Location = newOctoPoint;
+            }
 		}
 
 		private void moveRight()
 		{
-			octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
+            Point newOctoPoint = new Point(octo.Location.X + step, octo.Location.Y);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            // if the rectangle's right edge is onscreen
+            if (newOctoBounds.Right <= ClientRectangle.Right)
+            {
+                octo.Location = newOctoPoint;
+            }
 		}
 	}
 }
