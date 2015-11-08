@@ -57,22 +57,42 @@ namespace CentSharp
 
 		private void moveUp()
 		{
-			octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+            Point newOctoPoint = new Point(octo.Location.X, octo.Location.Y - step);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            if (newOctoBounds.Y >= ClientRectangle.Top)
+            {
+                octo.Location = new Point(octo.Location.X, octo.Location.Y - step);
+            }
 		}
 
 		private void moveDown()
 		{
-			octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+            Point newOctoPoint = new Point(octo.Location.X, octo.Location.Y + step);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            if (newOctoBounds.Y + octo.Size.Height <= ClientRectangle.Bottom)
+            {
+                octo.Location = new Point(octo.Location.X, octo.Location.Y + step);
+            }
 		}
 
 		private void moveLeft()
 		{
-			octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+            Point newOctoPoint = new Point(octo.Location.X - step, octo.Location.Y);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            if (newOctoBounds.X >= ClientRectangle.Left)
+            {
+                octo.Location = new Point(octo.Location.X - step, octo.Location.Y);
+            }
 		}
 
 		private void moveRight()
 		{
-			octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
+            Point newOctoPoint = new Point(octo.Location.X + step, octo.Location.Y);
+            Rectangle newOctoBounds = new Rectangle(newOctoPoint, octo.Size);
+            if (newOctoBounds.X + octo.Size.Width <= ClientRectangle.Right)
+            {
+                octo.Location = new Point(octo.Location.X + step, octo.Location.Y);
+            }
 		}
 	}
 }
